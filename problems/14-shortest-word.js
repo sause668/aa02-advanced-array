@@ -1,4 +1,6 @@
 /*
+
+
 Write a function `shortestWord` that accepts a sentence as an argument.
 The function should return the shortest word in the sentence. If there is a tie,
 return the word that appears later in the sentence.
@@ -15,7 +17,16 @@ console.log(shortestWord('do what you enjoy'));         // 'do'
 */
 
 let shortestWord = function(sentence) {
-  // Your code here 
+  let arr = sentence.split(' ');
+  let shortestWord = arr[0];
+
+  arr.forEach(word =>{
+    if (word.length <= shortestWord.length) {
+      shortestWord = word;
+    }
+  })
+
+  return shortestWord;
 };
 
 // Your code here 
