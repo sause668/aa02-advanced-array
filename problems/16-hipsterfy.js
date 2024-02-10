@@ -1,4 +1,7 @@
 /*
+
+
+
 Write a function `hipsterfy(sentence)` that takes in a sentence string and
 returns the sentence where every word is missing it's last vowel.
 
@@ -14,11 +17,26 @@ console.log(hipsterfy('panthers are great animals')); // 'panthrs ar gret animls
 */
 
 let removeLastVowel = function(word) {
-    // Your code here 
+    let vowels = 'aeiou';
+
+    for (let i = word.length - 1; i >= 0; i--) {
+        if (vowels.includes(word[i])) {
+            return word.slice(0,i) + word.slice(i+1);
+        }
+    }
+
+    return word;
 };
 
 let hipsterfy = function(sentence) {
-    // Your code here 
+    let arr = sentence.split(' ');
+    let missingVal = [];
+
+    arr.forEach(word => {
+        missingVal.push(removeLastVowel(word));
+    })
+
+    return missingVal.join(' ');
 };
 
 // alternative solution using Array.map
